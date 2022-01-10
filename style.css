@@ -1,0 +1,200 @@
+
+body {
+   width: 100%;
+}
+
+#game {
+    width: 87%;
+    height: 30vw;
+    border: solid;
+    position: absolute;
+    top: 0;
+    border-width: 0.1vw;
+    padding-left: 12.5%;
+}
+
+#character {
+    display: inline-block;
+    height: 3vw;
+    width: 11%;
+    position: relative;
+    top: 19vw;
+    z-index: 2;
+    /* background-color: blue; */
+      transform: rotate(0deg);
+}
+
+#block {
+    width: 15%;
+    height: 9VW;
+    /* background-color: red; */
+    position: relative;
+    display: inline-block;
+    top: 21vw;
+    left: 78.5%;
+    animation: block 1.7s infinite linear;
+}
+
+.animate {
+    animation: character 0.5s infinite linear;
+}
+
+.animate1 {
+  animation: updown 0.2s infinite;
+}
+
+ @keyframes block {
+    0%{left: 78.5%}
+    100%{left: -40%}
+} 
+
+@keyframes character {
+    0%{top: 19vw}
+    0%{transform: rotate(0deg)}
+    25%{transform: rotate(-20deg)}
+    50%{transform: rotate(0deg)}
+    75%{transform: rotate(20deg)}
+    100%{transform: rotate(0deg)}
+    30%{top: 6vw}
+    70%{top: 6vw}
+    100%{top: 19vw}
+} 
+
+@keyframes updown {
+    0%{top: 19vw}
+    50%{top: 19.1vw}
+    100%{top: 19vw}
+}
+
+
+
+
+.background {
+    background: url("https://i.pinimg.com/originals/be/ba/cc/bebacca37611dbb7004be7363f74dfb9.jpg") repeat-x;
+    height: 35vw;
+    width: 400%;
+    animation: slide 40s linear infinite;
+    background-color: rgba(185, 138, 9, 0.363);
+  }
+
+  @keyframes slide{
+    0%{
+      transform: translate3d(0, 0, 0);
+    }
+    100%{
+      transform: translate3d(-40%, 0, 0);
+    }
+  }
+
+.par {
+    position: relative;
+    overflow: hidden;
+    height: 30vw;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+ 
+
+
+    
+body {
+    width: 100%;
+ }
+ 
+ #game {
+     width: 87%;
+     height: 75vw;
+     border: solid;
+     position: absolute;
+     top: 0;
+     border-width: 0.1vw;
+     padding-left: 12.5%;
+ }
+ 
+ #character {
+     display: inline-block;
+     height: 5vw;
+     width: 18%;
+     position: relative;
+     top: 60vw;
+     z-index: 2;
+     /* background-color: blue; */
+       transform: rotate(0deg);
+ }
+ 
+ #block {
+     width: 25%;
+     height: 13VW;
+     /* background-color: red; */
+     position: relative;
+     display: inline-block;
+     top: 62vw;
+     left: 40%;
+     animation: block 1.2s infinite linear;
+ }
+ 
+ .animate {
+     animation: character 0.5s infinite linear;
+ }
+ 
+ .animate1 {
+   animation: updown 0.2s infinite;
+ }
+
+   @keyframes block {
+     0%{left: 67%}
+     100%{left: -70%}
+ } 
+ 
+ @keyframes character {
+     0%{top: 60vw}
+     0%{transform: rotate(0deg)}
+     25%{transform: rotate(-20deg)}
+     50%{transform: rotate(0deg)}
+     75%{transform: rotate(20deg)}
+     100%{transform: rotate(0deg)}
+     30%{top: 35vw}
+     70%{top: 35vw}
+     100%{top: 60vw}
+ }  
+ 
+ @keyframes updown {
+     0%{top: 60vw}
+     50%{top: 60.2vw}
+     100%{top: 60vw}
+ }
+ 
+  
+ 
+ 
+ .background {
+     background: url("https://i.pinimg.com/originals/be/ba/cc/bebacca37611dbb7004be7363f74dfb9.jpg") repeat-x;
+     height: 75vw;
+     width: 400%;
+     animation: slide 40s linear infinite;
+     background-color: rgba(185, 138, 9, 0.363);
+   }
+ 
+   @keyframes slide{
+     0%{
+       transform: translate3d(0, 0, 0);
+     }
+     100%{
+       transform: translate3d(-40%, 0, 0);
+     }
+   }
+ 
+ .par {
+     position: relative;
+     overflow: hidden;
+     height: 75vw;
+ }
+ 
+ 
+
+
+
+  }
