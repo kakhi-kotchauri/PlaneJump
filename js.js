@@ -39,12 +39,51 @@ function c() {
 }
 
 
-// let checkdead = setInterval(function(){
-//      let charactertop =  parseInt(window.getComputedStyle(character).getPropertyValue('top'))
-//      let blockleft =  parseInt(window.getComputedStyle(block).getPropertyValue('left'))
-//     //  console.log(charactertop)
-//     //  console.log(blockleft)
-// }, 100);
 
+setInterval(function(){
 
+  let verticalMatch = null
+  let horizontalMatch = null
+  let intersect = null
 
+  let div1 = character.getBoundingClientRect();
+  let div1Top = div1.top;
+  let div1Left = div1.left;
+  let div1Right = div1.right
+  let div1Bottom = div1.bottom
+  
+  let div2 = block.getBoundingClientRect();
+  let div2Top = div2.top;
+  let div2Left = div2.left;
+  let div2Right = div2.right
+  let div2Bottom = div2.bottom
+  
+  if (div1Top > div2Top) {
+     verticalMatch = true
+  } else{
+     verticalMatch = false
+  }
+  
+  if ((div2Right > div1Left && div2Right < div1Right)||(div2Left < div1Right && div2Left > div1Left)) {
+    horizontalMatch = true
+  } else {
+    horizontalMatch = false
+  }
+  
+  if (horizontalMatch && verticalMatch){
+    intersect = true
+  } else {
+    intersect = false
+  }
+
+  if(intersect) {
+    alert('you loose')
+    block.classList.remove('block')
+    block.classList.add('reset')
+    setTimeout(function(){
+    block.classList.remove('reset')
+    },100)
+    block.classList.add('block')   
+  }
+
+}, 100);

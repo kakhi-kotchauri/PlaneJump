@@ -24,7 +24,7 @@ body {
       transform: rotate(0deg);
 }
 
-#block {
+.block {
     width: 15%;
     height: 9VW;
     /* background-color: red; */
@@ -43,10 +43,23 @@ body {
   animation: updown 0.2s infinite;
 }
 
+.reset {
+  animation: reset 0.2s;
+}
+
+
+@keyframes reset {
+  0%{left: 100%}
+  100%{left: 90%}
+} 
+
+
  @keyframes block {
     0%{left: 78.5%}
     100%{left: -40%}
 } 
+
+
 
 @keyframes character {
     0%{top: 19vw}
@@ -125,7 +138,7 @@ body {
        transform: rotate(0deg);
  }
  
- #block {
+ .block {
      width: 25%;
      height: 13VW;
      /* background-color: red; */
@@ -133,7 +146,7 @@ body {
      display: inline-block;
      top: 62vw;
      left: 40%;
-     animation: block 1.2s infinite linear;
+     animation: block 1.5s infinite linear;
  }
  
  .animate {
@@ -143,6 +156,17 @@ body {
  .animate1 {
    animation: updown 0.2s infinite;
  }
+
+ .reset {
+  animation: reset 0.2s;
+}
+
+
+@keyframes reset {
+  0%{left: 100%}
+  100%{left: 90%}
+} 
+
 
    @keyframes block {
      0%{left: 67%}
