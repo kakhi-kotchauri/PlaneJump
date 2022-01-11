@@ -82,7 +82,7 @@ setInterval(function(){
     block.classList.add('reset')
     setTimeout(function(){
     block.classList.remove('reset')
-    },100)
+    },50)
     block.classList.add('block')   
   }
 
