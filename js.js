@@ -5,20 +5,49 @@ const collider = document.querySelector('#collider')
 const blockimg = document.querySelector('#blockimg')
 const score = document.querySelector('#score')
 const body = document.querySelector('#body')
+const score1 = document.querySelector('#score1')
+const record = document.querySelector('#record')
+
+
+
+let storer = 0
+let maxscore = storer
+let speed = 1700
+
 
 body.addEventListener('touchstart', function() {
   c()
 })
 
+setInterval(() => {
 
-let storer = 0
-let maxscore = storer
+if (speed > 900) {
+  speed = speed - 0.2
+  // console.log(speed)
+  block.style.animation = `block ${speed}ms infinite linear`
+}
+}, 10);
+
+
+
+
 
 
 setInterval(() => {
   storer = storer + 1
   score.textContent = ` score ${storer}`
 }, 100);
+
+
+
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
 
 
 
@@ -104,12 +133,20 @@ setInterval(function(){
 
 
   if(intersect) {
+    score1.textContent = `score ${storer}`
+    score1.style.display = 'block'
+    record.style.display = 'block'
     character.src = 'dest.png'
     blockimg.src = 'cliff2.png'
     score.textContent = `plane destroyed`
+    record.textContent = `record ${maxscore}`
     setTimeout(() => {
-    alert(`Score ${storer} \nRecord ${maxscore}`) 
+      score1.style.display = 'none'
+      record.style.display = 'none'
+    // alert(`Score ${storer} \nRecord ${maxscore}`) 
+    sleep(2000)
     storer = 0
+    speed = 1700
     character.src = 'plane.png'  
     blockimg.src = 'cliff.png'
     block.style.display = 'none'
@@ -120,21 +157,14 @@ setInterval(function(){
 
 }, 30);
 
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min) + min)
-}
+
 
 setInterval(() => {
-  
-  setTimeout(() => {
-    block.style.display = 'none'
-    block.classList.remove('blockpar')
-  }, 1700);
-
+  block.style.display = 'none'
+  block.classList.remove('blockpar')
   block.classList.add('blockpar')
   block.style.display = 'inline-block'
-
-}, random(1700,3400));
+}, 50);
 
 
 
