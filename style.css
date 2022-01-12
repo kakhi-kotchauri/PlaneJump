@@ -17,22 +17,60 @@ body {
     display: inline-block;
     height: 3vw;
     width: 11%;
-    position: relative;
-    top: 19vw;
+    position: absolute;
+    top: 23vw;
     z-index: 2;
     /* background-color: blue; */
       transform: rotate(0deg);
 }
 
-.block {
-    width: 15%;
+.blockimg {
+    width: 100%;
     height: 9VW;
-    /* background-color: red; */
-    position: relative;
-    display: inline-block;
-    top: 21vw;
-    left: 78.5%;
-    animation: block 1.7s infinite linear;
+    
+}
+
+.blockpar {
+  width: 15%;
+  height: 9VW;
+  position: absolute;
+  display: inline-block;
+  top: 21vw;
+  left: 78.5%;
+  animation: block 1.7s infinite linear;
+}
+
+.scorepar {
+  width: 100%;
+  height: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  z-index: 34;
+}
+
+.score {
+  font-size: 2vw;
+}
+
+.colpar {
+  width: 100%;
+  height: 9vw;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+}
+
+.collider {
+  height: 10vw;
+  width: 30%;
+  /* background-color: red; */
+  position: absolute;
+  bottom: 0;
+  margin-right: 3vw;
 }
 
 .animate {
@@ -55,28 +93,28 @@ body {
 
 
  @keyframes block {
-    0%{left: 78.5%}
+    0%{left: 100%}
     100%{left: -40%}
 } 
 
 
 
 @keyframes character {
-    0%{top: 19vw}
+    0%{top: 26vw}
     0%{transform: rotate(0deg)}
     25%{transform: rotate(-20deg)}
     50%{transform: rotate(0deg)}
     75%{transform: rotate(20deg)}
     100%{transform: rotate(0deg)}
-    30%{top: 6vw}
-    70%{top: 6vw}
-    100%{top: 19vw}
+    30%{top: 18vw}
+    70%{top: 18vw}
+    100%{top: 26vw}
 } 
 
 @keyframes updown {
-    0%{top: 19vw}
-    50%{top: 19.1vw}
-    100%{top: 19vw}
+    0%{top: 26vw}
+    50%{top: 26.1vw}
+    100%{top: 26vw}
 }
 
 
@@ -103,6 +141,7 @@ body {
     position: relative;
     overflow: hidden;
     height: 30vw;
+    margin-top: 10vw;
 }
 
 
@@ -131,23 +170,54 @@ body {
      display: inline-block;
      height: 5vw;
      width: 18%;
-     position: relative;
+     position: absolute;
      top: 60vw;
      z-index: 2;
      /* background-color: blue; */
        transform: rotate(0deg);
  }
+
+ .blockimg {
+  width: 100%;
+  height: 15VW;
+  
+}
+
  
- .block {
+ .blockpar {
      width: 25%;
-     height: 13VW;
+     height: 15VW;
      /* background-color: red; */
-     position: relative;
+     position: absolute;
      display: inline-block;
-     top: 62vw;
-     left: 40%;
-     animation: block 1.5s infinite linear;
+     top: 60vw;
+     left: 70%;
+     animation: block 1.7s infinite linear;
  }
+
+ 
+.colpar {
+  width: 100%;
+  height: 15vw;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+}
+
+.collider {
+  height: 14vw;
+  width: 40%;
+  /* background-color: red; */
+  position: absolute;
+  bottom: 0;
+  margin-right: 5vw;
+}
+
+.score {
+  margin-top: 1vw;
+  font-size: 4vw;
+}
  
  .animate {
      animation: character 0.5s infinite linear;
@@ -169,26 +239,26 @@ body {
 
 
    @keyframes block {
-     0%{left: 67%}
+     0%{left: 100%}
      100%{left: -70%}
  } 
  
  @keyframes character {
-     0%{top: 60vw}
+     0%{top: 67vw}
      0%{transform: rotate(0deg)}
      25%{transform: rotate(-20deg)}
      50%{transform: rotate(0deg)}
      75%{transform: rotate(20deg)}
      100%{transform: rotate(0deg)}
-     30%{top: 35vw}
-     70%{top: 35vw}
-     100%{top: 60vw}
+     30%{top: 55vw}
+     70%{top: 55vw}
+     100%{top: 67vw}
  }  
  
  @keyframes updown {
-     0%{top: 60vw}
-     50%{top: 60.2vw}
-     100%{top: 60vw}
+     0%{top: 67vw}
+     50%{top: 67.2vw}
+     100%{top: 67vw}
  }
  
   
@@ -215,6 +285,7 @@ body {
      position: relative;
      overflow: hidden;
      height: 75vw;
+     margin-top: 5vw;
  }
  
  

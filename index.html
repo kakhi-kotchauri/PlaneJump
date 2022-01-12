@@ -7,13 +7,24 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="reset.css">
 </head>
-<body>
+<body id="body">
+
+
   <div class="par">
-      
+      <div class="scorepar">
+        <div class="score" id="score">jump</div>
+      </div>
     <div class="background"></div>
     <div id="game">
         <img class="animate1" id="character" src="plane.png" alt="ss">
-        <img class="block" id="block" src="cliff.png" alt="ss2">
+
+        <div  id="block" class="blockpar">
+          <img id="blockimg" class="blockimg" src="cliff.png" alt="ss2">
+          <div class="colpar">
+          <div id="collider" class="collider"></div>
+        </div>
+        </div>
+
     </div>
 
   </div>
