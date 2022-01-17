@@ -18,7 +18,7 @@ body {
     height: 3vw;
     width: 11%;
     position: absolute;
-    top: 23vw;
+    top: 26vw;
     z-index: 2;
     /* background-color: blue; */
       transform: rotate(0deg);
@@ -40,6 +40,14 @@ body {
   /* animation: block 1.7s infinite linear; */
 }
 
+.blockpar2 {
+  width: 15%;
+  height: 9VW;
+  position: absolute;
+  display: inline-block;
+  top: 21vw;
+  left: 78.5%;
+}
 .scorepar {
   width: 100%;
   height: 4vw;
@@ -78,8 +86,8 @@ body {
 }
 
 .collider {
-  height: 10vw;
-  width: 30%;
+  height: 8.5vw;
+  width: 35%;
   /* background-color: red; */
   position: absolute;
   bottom: 0;
@@ -157,6 +165,20 @@ body {
     margin-top: 7vw;
 }
 
+.restartpar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 30vw;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.restart {
+  z-index: 100;
+  width: 10vw;
+}
 
 
 
@@ -313,6 +335,21 @@ body {
      height: 75vw;
      margin-top: 15vw;
  }
+
+ .restartpar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 75vw;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.restart {
+  z-index: 100;
+  width: 15vw;
+}
  
  
 

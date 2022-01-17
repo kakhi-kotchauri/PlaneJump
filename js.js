@@ -7,85 +7,121 @@ const score = document.querySelector('#score')
 const body = document.querySelector('#body')
 const score1 = document.querySelector('#score1')
 const record = document.querySelector('#record')
+const reset = document.querySelector('#reset')
+const restartpar = document.querySelector('#restartpar')
 
 
 
 let storer = 0
 let maxscore = storer
 let speed = 1700
+let gamestat = true
+let intersectstatus = false
 
 
-body.addEventListener('touchstart', function() {
-  c()
-})
+
+
+
+let exp = () => {
+  block.style.animation = `block ${speed}ms infinite linear`
+
+}
 
 setInterval(() => {
 
 if (speed > 900) {
   speed = speed - 0.2
   // console.log(speed)
-  block.style.animation = `block ${speed}ms infinite linear`
+  if(gamestat === true){
+  exp()
+  }
 }
+if(gamestat === false) {
+  block.style.animation = `block 0ms infinite linear`
+}
+
 }, 10);
 
 
 
-
-
-
 setInterval(() => {
+  if(gamestat) {
   storer = storer + 1
   score.textContent = ` score ${storer}`
+  }
 }, 100);
 
 
 
-function sleep(milliseconds) {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-}
+setInterval(() => {
 
+  html.addEventListener('keydown', addclass)
 
+  function addclass(event) {
 
+    if(intersectstatus) {
+      if(event.code === 'Space') {
+        restart()
+      }
+    }
 
-html.addEventListener('keydown', addclass)
+    if(intersectstatus === false) {
 
-
-function addclass(event) {
-
-  if(event.code === 'ArrowUp' || event.code === 'Space') {
-
-    if(character.classList.value !== 'animate') {
-        character.classList.remove('animate1')
-        character.classList.add('animate')
-        setTimeout(function(){
-        character.classList.remove('animate')
-        character.classList.add('animate1')
-        },500)
-    }  
-  }
-
-  if(event.code === 'ArrowDown') {
-    setTimeout(function(){
-    character.classList.remove('animate')
-    character.classList.add('animate1')
-    },150)
-}
-}
-
-function c() {
+      if(event.code === 'ArrowUp' || event.code === 'Space') {
+  
         if(character.classList.value !== 'animate') {
             character.classList.remove('animate1')
             character.classList.add('animate')
             setTimeout(function(){
             character.classList.remove('animate')
-            character.classList.add('animate1')
+            if(character.classList.value !== 'smt') {
+              character.classList.add('animate1')
+            }
             },500)
         }  
+      }
+    
+      if(event.code === 'ArrowDown') {
+        setTimeout(function(){
+        character.classList.remove('animate')
+        character.classList.add('animate1')
+        },150)
+    }
+
+    }
+
+   }
+
+}, 100);
+
+
+setInterval(() => {
+  html.addEventListener('click', function() {
+    c()
+  })
+
+  body.addEventListener('touchstart', function() {
+    c()
+  })
+  
+  function c() {
+
+    if(intersectstatus === false) {
+      if(character.classList.value !== 'animate') {
+        character.classList.remove('animate1')
+        character.classList.add('animate')
+        setTimeout(function(){
+        character.classList.remove('animate')
+        if(character.classList.value !== 'smt') {
+          character.classList.add('animate1')
+        }
+        },500)
+    } 
+    }
+ 
 }
+}, 100);
+
 
 
 
@@ -131,8 +167,37 @@ setInterval(function(){
     maxscore = storer
   }
 
+  var charactertopp = window.getComputedStyle(character).getPropertyValue('top')
+  var blockleftp = window.getComputedStyle(block).getPropertyValue('left')
 
-  if(intersect) {
+  
+function getRotationAngle(target) 
+{
+  const obj = window.getComputedStyle(target, null);
+  const matrix = obj.getPropertyValue('-webkit-transform') || 
+    obj.getPropertyValue('-moz-transform') ||
+    obj.getPropertyValue('-ms-transform') ||
+    obj.getPropertyValue('-o-transform') ||
+    obj.getPropertyValue('transform');
+
+  let angle = 0; 
+
+  if (matrix !== 'none') 
+  {
+    const values = matrix.split('(')[1].split(')')[0].split(',');
+    const a = values[0];
+    const b = values[1];
+    angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+  } 
+
+  return (angle < 0) ? angle +=360 : angle;
+}
+
+
+
+  if(intersect && intersectstatus === false) {
+    intersectstatus = true
+    restartpar.style.display = 'flex'
     score1.textContent = `score ${storer}`
     score1.style.display = 'block'
     record.style.display = 'block'
@@ -140,31 +205,42 @@ setInterval(function(){
     blockimg.src = 'cliff2.png'
     score.textContent = `plane destroyed`
     record.textContent = `record ${maxscore}`
-    setTimeout(() => {
-      score1.style.display = 'none'
-      record.style.display = 'none'
-    // alert(`Score ${storer} \nRecord ${maxscore}`) 
-    sleep(2000)
-    storer = 0
-    speed = 1700
-    character.src = 'plane.png'  
-    blockimg.src = 'cliff.png'
-    block.style.display = 'none'
-    }, 20);
+    gamestat = false
+    character.style.top = charactertopp
+    character.style.transform = `rotate(${getRotationAngle(character)}deg)`
+    character.classList.remove('animate')
+    character.classList.remove('animate1')
+    character.classList.add('smt')
+    block.style.left = blockleftp
   }
 
+}, 10);
 
 
-}, 30);
-
-
-
-setInterval(() => {
+function restart() {
+  restartpar.style.display = 'none'
   block.style.display = 'none'
   block.classList.remove('blockpar')
-  block.classList.add('blockpar')
-  block.style.display = 'inline-block'
-}, 50);
+  storer = 0
+  character.src = 'plane.png'  
+  blockimg.src = 'cliff.png'
+  character.style.top = 'unset'
+  character.style.transform = `rotate(0deg)`
+  block.style.left = 'unset'
+  intersectstatus = false
+  gamestat = true
+  setTimeout(() => {
+    block.style.display = 'inline-block'
+    block.classList.add('blockpar')
+  }, 40);
+  speed = 1700
+  score1.style.display = 'none'
+  record.style.display = 'none'
+  character.classList.remove('smt')
+  character.classList.add('animate1')
+}
+
+
 
 
 
