@@ -202,8 +202,8 @@ function getRotationAngle(target)
     score1.textContent = `score ${storer}`
     score1.style.display = 'block'
     record.style.display = 'block'
-    character.src = 'dest.gif'
-    blockimg.src = 'destcliff.gif'
+    character.src = 'dest.png'
+    blockimg.src = 'destcliff.png'
     score.textContent = `plane destroyed`
     record.textContent = `record ${maxscore}`
     gamestat = false
@@ -234,7 +234,7 @@ function restart() {
     block.style.display = 'inline-block'
     block.classList.add('blockpar')
   }, 40);
-  speed = 2000
+  speed = 1700
   score1.style.display = 'none'
   record.style.display = 'none'
   character.classList.remove('smt')
