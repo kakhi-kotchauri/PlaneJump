@@ -167,8 +167,9 @@ setInterval(function(){
     maxscore = storer
   }
 
-  var charactertopp = window.getComputedStyle(character).getPropertyValue('top')
-  var blockleftp = window.getComputedStyle(block).getPropertyValue('left')
+  
+  let charactertopp = parseInt(window.getComputedStyle(character).getPropertyValue('top'))
+  let blockleftp = window.getComputedStyle(block).getPropertyValue('left')
 
   
 function getRotationAngle(target) 
@@ -201,12 +202,12 @@ function getRotationAngle(target)
     score1.textContent = `score ${storer}`
     score1.style.display = 'block'
     record.style.display = 'block'
-    character.src = 'dest.png'
-    blockimg.src = 'cliff2.png'
+    character.src = 'dest.gif'
+    blockimg.src = 'destcliff.gif'
     score.textContent = `plane destroyed`
     record.textContent = `record ${maxscore}`
     gamestat = false
-    character.style.top = charactertopp
+    character.style.top = `${charactertopp + charactertopp * 5 / 100}px`
     character.style.transform = `rotate(${getRotationAngle(character)}deg)`
     character.classList.remove('animate')
     character.classList.remove('animate1')
@@ -233,7 +234,7 @@ function restart() {
     block.style.display = 'inline-block'
     block.classList.add('blockpar')
   }, 40);
-  speed = 1700
+  speed = 2000
   score1.style.display = 'none'
   record.style.display = 'none'
   character.classList.remove('smt')
