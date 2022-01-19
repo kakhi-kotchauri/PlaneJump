@@ -33,7 +33,7 @@ body {
   height: 9VW;
   position: absolute;
   display: inline-block;
-  top: 21vw;
+  top: 21.2vw;
   left: 78.5%;
   /* animation: block 1.7s infinite linear; */
   z-index: 2;
@@ -44,7 +44,7 @@ body {
   height: 9VW;
   position: absolute;
   display: inline-block;
-  top: 21vw;
+  top: 21.2vw;
   left: 78.5%;
 }
 .scorepar {
@@ -73,10 +73,14 @@ body {
 
 .score {
   font-size: 2vw;
+  color: rgb(59, 56, 56);
+  font-family: Poppins;
 }
 
 .scored {
   font-size: 2vw;
+  color: rgb(41, 39, 39);
+  font-family: Poppins;
 }
 
 .colpar {
@@ -149,7 +153,7 @@ body {
     overflow: hidden;
     height: 30vw;
     margin-top: 7vw;
-    background-color: turquoise;
+    background-color: gray;
     border: solid;
     border-width: 0.2vw;
     border-color: gray;
@@ -157,7 +161,7 @@ body {
 
 .sea {
   position: absolute;
-  bottom: 0;
+  bottom: 0vw;
   width: 100%;
   height: 4vw;
   z-index: 1;
@@ -264,11 +268,15 @@ body {
 .score {
   margin-top: 0.5vw;
   font-size: 4vw;
+  color: rgb(59, 56, 56);
+  font-family: Poppins;
 }
 
 .scored {
   margin-top: 4vw;
   font-size: 4vw;
+  color: rgb(46, 43, 43);
+  font-family: Poppins;
 }
 
 .scorepar0 {
@@ -280,7 +288,7 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 0;
+  top: 10vw;
   z-index: 34;
 }
  
@@ -333,7 +341,7 @@ body {
      position: relative;
      overflow: hidden;
      height: 75vw;
-     margin-top: 15vw;
+     margin-top: 25vw;
      border: solid;
      border-width: 0.4vw;
      border-color: gray;
