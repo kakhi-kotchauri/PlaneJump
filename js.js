@@ -9,14 +9,21 @@ const score1 = document.querySelector('#score1')
 const record = document.querySelector('#record')
 const reset = document.querySelector('#reset')
 const restartpar = document.querySelector('#restartpar')
+const par = document.querySelector('#par')
 
 
 
 let storer = 0
 let maxscore = storer
-let speed = 1700
+let speed = 2000
 let gamestat = true
 let intersectstatus = false
+let movmentcounter = 0
+let multiply = 0.05
+let lvl = 0
+let maxlvl = lvl
+let stopstop = true
+
 
 
 
@@ -29,16 +36,32 @@ let exp = () => {
 
 setInterval(() => {
 
-if (speed > 900) {
-  speed = speed - 0.2
-  // console.log(speed)
+  if (movmentcounter % 10 === 0 && stopstop) {
+     lvl = lvl + 1
+    console.log('ss')
+    multiply = multiply + 0.01
+     stopstop = false
+  }
+
+  
+  if (movmentcounter % 10 !== 0) {
+    stopstop = true
+ }
+
+if (movmentcounter >= 0) {
+  speed = speed - multiply
+
   if(gamestat === true){
   exp()
   }
 }
+
+
+
 if(gamestat === false) {
   block.style.animation = `block 0ms infinite linear`
 }
+
 
 }, 10);
 
@@ -47,7 +70,7 @@ if(gamestat === false) {
 setInterval(() => {
   if(gamestat) {
   storer = storer + 1
-  score.textContent = ` score ${storer}`
+  score.textContent = ` LVL ${lvl} score ${storer}`
   }
 }, 100);
 
@@ -123,7 +146,7 @@ setInterval(() => {
 }, 100);
 
 
-
+let stoper = true
 
 setInterval(function(){
 
@@ -168,8 +191,27 @@ setInterval(function(){
   }
 
   
+  if (lvl > maxlvl) {
+    maxlvl = lvl
+  }
+
+  
   let charactertopp = parseInt(window.getComputedStyle(character).getPropertyValue('top'))
   let blockleftp = window.getComputedStyle(block).getPropertyValue('left')
+
+  // console.log(blockleftp)
+  // console.log(par.offsetWidth)
+
+       if (parseInt(blockleftp) < 0 && stoper) {
+         movmentcounter = movmentcounter + 1
+         stoper = false
+         console.log(movmentcounter)
+        }
+
+        if(parseInt(blockleftp) > 0) {
+          stoper = true
+        }
+
 
   
 function getRotationAngle(target) 
@@ -199,13 +241,13 @@ function getRotationAngle(target)
   if(intersect && intersectstatus === false) {
     intersectstatus = true
     restartpar.style.display = 'flex'
-    score1.textContent = `score ${storer}`
+    score1.textContent = ` Current: Level ${lvl}, score ${storer}`
     score1.style.display = 'block'
     record.style.display = 'block'
     character.src = 'dest.png'
     blockimg.src = 'destcliff.png'
     score.textContent = `plane destroyed`
-    record.textContent = `record ${maxscore}`
+    record.textContent = ` Record: Level ${maxlvl}, score ${maxscore}`
     gamestat = false
     character.style.top = `${charactertopp + charactertopp * 5 / 100}px`
     character.style.transform = `rotate(${getRotationAngle(character)}deg)`
@@ -234,11 +276,15 @@ function restart() {
     block.style.display = 'inline-block'
     block.classList.add('blockpar')
   }, 40);
-  speed = 1700
+  speed = 2000
   score1.style.display = 'none'
   record.style.display = 'none'
   character.classList.remove('smt')
   character.classList.add('animate1')
+  movmentcounter = 0
+  multiply = 0.1
+  lvl = 0
+  stopstop = true
 }
 
 
