@@ -75,6 +75,10 @@ body {
   font-size: 2vw;
 }
 
+.scored {
+  font-size: 2vw;
+}
+
 .colpar {
   width: 100%;
   height: 9vw;
@@ -155,13 +159,22 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 3vw;
+  height: 4vw;
   z-index: 1;
 }
 
 .seapic {
   width: 100%;
+  height: 4vw;
+  position: absolute;
+  top: 0;
 }
+
+.horizone {
+  width: 100%;
+  height: 30vw;
+}
+
 
 
 
@@ -194,10 +207,8 @@ body {
  #game {
      width: 87%;
      height: 75vw;
-     border: solid;
      position: absolute;
      top: 0;
-     border-width: 0.1vw;
      padding-left: 12.5%;
  }
  
@@ -214,18 +225,18 @@ body {
 
  .blockimg {
   width: 100%;
-  height: 14VW;
+  height: 16VW;
   
 }
 
  
  .blockpar {
-     width: 24%;
-     height: 14VW;
+     width: 28%;
+     height: 16VW;
      /* background-color: red; */
      position: absolute;
      display: inline-block;
-     top: 62vw;
+     top: 59vw;
      left: 70%;
      animation: block 1.7s infinite linear;
  }
@@ -233,7 +244,7 @@ body {
  
 .colpar {
   width: 100%;
-  height: 14vw;
+  height: 16vw;
   display: flex;
   justify-content: center;
   position: absolute;
@@ -241,7 +252,7 @@ body {
 }
 
 .collider {
-  height: 13vw;
+  height: 14vw;
   width: 70%;
   /* background-color: red; */
   position: absolute;
@@ -252,6 +263,11 @@ body {
 
 .score {
   margin-top: 0.5vw;
+  font-size: 4vw;
+}
+
+.scored {
+  margin-top: 4vw;
   font-size: 4vw;
 }
 
@@ -299,56 +315,53 @@ body {
      50%{transform: rotate(0deg)}
      75%{transform: rotate(20deg)}
      100%{transform: rotate(0deg)}
-     30%{top: 53vw}
-     70%{top: 53vw}
+     30%{top: 50vw}
+     70%{top: 50vw}
      100%{top: 68vw}
  }  
  
  @keyframes updown {
-     0%{top: 68vw}
-     50%{top: 68.2vw}
-     100%{top: 68vw}
+     0%{top: 68.5vw}
+     50%{top: 68.5.2vw}
+     100%{top: 68.5vw}
  }
  
   
- 
- 
- .background {
-     background: url("https://i.pinimg.com/originals/be/ba/cc/bebacca37611dbb7004be7363f74dfb9.jpg") repeat-x;
-     height: 75vw;
-     width: 400%;
-     animation: slide 40s linear infinite;
-     background-color: rgba(185, 138, 9, 0.363);
-   }
- 
-   @keyframes slide{
-     0%{
-       transform: translate3d(0, 0, 0);
-     }
-     100%{
-       transform: translate3d(-40%, 0, 0);
-     }
-   }
+
  
  .par {
      position: relative;
      overflow: hidden;
      height: 75vw;
      margin-top: 15vw;
+     border: solid;
+     border-width: 0.4vw;
+     border-color: gray;
  }
 
 
  
-.sea {
+ .sea {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 4.5vw;
+  height: 6.5vw;
   z-index: 1;
+  background-color: blue;
 }
 
 .seapic {
   width: 100%;
+  height: 6.5vw;
+  position: absolute;
+  top: 0;
+}
+
+
+.horizone {
+  width: 100%;
+  height: 75vw;
+
 }
 
 
