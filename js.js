@@ -15,7 +15,7 @@ const par = document.querySelector('#par')
 
 let storer = 0
 let maxscore = storer
-let speed = 2000
+let speed = 1800
 let gamestat = true
 let intersectstatus = false
 let movmentcounter = 0
@@ -276,7 +276,7 @@ function restart() {
     block.style.display = 'inline-block'
     block.classList.add('blockpar')
   }, 40);
-  speed = 2000
+  speed = 1800
   score1.style.display = 'none'
   record.style.display = 'none'
   character.classList.remove('smt')
