@@ -1,3 +1,22 @@
+html {
+  position: relative;
+  background-color: rgba(161, 163, 168, 0.349);
+}
+
+.signpar {
+ position: absolute;
+ bottom: 1vw;
+ display: flex;
+ justify-content: center;
+ width: 100%;
+}
+
+.sign {
+  font-family: Poppins;
+  font-size: 1.5vw;
+  color: rgba(128, 128, 128, 0.397);
+}
+
 
 body {
    width: 100%;
@@ -241,6 +260,19 @@ body {
 
 
 @media only screen and (max-width: 600px) {
+
+  .signpar {
+    position: absolute;
+    bottom: 1vw;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+   }
+
+  .sign {
+    font-size: 3vw;
+    color: rgba(128, 128, 128, 0.397);
+  }
  
 .test1 {
   color: transparent;

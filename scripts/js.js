@@ -145,7 +145,7 @@ if (movmentcounter >= 0) {
 setInterval(() => {
   if(gamestat) {
   storer = storer + 1
-  score.textContent = ` LVL ${lvl} score ${storer}`
+  score.textContent = ` LVL ${lvl}, score ${storer}`
   }
 }, 100);
 
@@ -342,14 +342,14 @@ function getRotationAngle(target)
   if(intersect && intersectstatus === false) {
     intersectstatus = true
     restartpar.style.display = 'flex'
-    score1.textContent = ` Current Level, ${lvl} score ${storer}`
+    score1.textContent = ` Current Level: ${lvl}, score: ${storer},`
     score1.style.display = 'block'
     record.style.display = 'block'
     character.src = 'pictures/dest.png'
     console.log('dest')
     blockimg.src = 'pictures/destcliff.png'
-    score.textContent = `plane destroyed`
-    record.textContent = ` Record Level, ${maxlvl} score ${maxscore}`
+    score.textContent = `Plane destroyed`
+    record.textContent = ` Record Level: ${maxlvl}, score: ${maxscore},`
     gamestat = false
     character.style.top = `${charactertopp + charactertopp * 5 / 100}px`
     character.style.transform = `rotate(${getRotationAngle(character)}deg)`
