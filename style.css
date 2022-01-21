@@ -11,6 +11,14 @@ body {
     padding-left: 12.5%;
 }
 
+
+@keyframes slideobj {
+  0%{left: 120%}
+  100%{left: -40%}
+} 
+
+
+
 #character {
     display: inline-block;
     height: 3vw;
@@ -36,6 +44,7 @@ body {
   top: 21.2vw;
   left: 78.5%;
   /* animation: block 1.7s infinite linear; */
+  animation-delay: 1s;
   z-index: 2;
 }
 
@@ -94,11 +103,11 @@ body {
 
 .collider {
   height: 8.5vw;
-  width: 60%;
-  /* background-color: red; */
+  width: 70%;
+  /* background-color: red;  */
   position: absolute;
   bottom: 0;
-  margin-right: 3vw;
+  margin-right: 2vw;
   z-index: 2;
 }
 
@@ -150,7 +159,7 @@ body {
 
 .par {
     position: relative;
-    overflow: hidden;
+    overflow: hidden;           
     height: 30vw;
     margin-top: 7vw;
     background-color: gray;
@@ -197,11 +206,32 @@ body {
   width: 10vw;
 }
 
+#width {
+  width: 100%;
+  color: transparent;
+  /* background-color: red; */
+  position: absolute;
+  top: 0;
+}
+
+.test1 {
+  color: transparent;
+  position: absolute;
+  top: 0;
+}
+
+
+
+/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
 
 
 @media only screen and (max-width: 600px) {
  
-
+.test1 {
+  color: red;
+  display: none;
+}
 
     
 body {
@@ -219,7 +249,7 @@ body {
  #character {
      display: inline-block;
      height: 5vw;
-     width: 18%;
+     width: 17%;
      position: absolute;
      top: 60vw;
      z-index: 4;
@@ -240,9 +270,9 @@ body {
      /* background-color: red; */
      position: absolute;
      display: inline-block;
-     top: 59.5vw;
+     top: 60vw;
      left: 70%;
-     animation: block 1.9s infinite linear;
+     animation: block 1.7s infinite linear;
  }
 
  
@@ -256,7 +286,7 @@ body {
 }
 
 .collider {
-  height: 14vw;
+  height: 13vw;
   width: 70%;
   /* background-color: red; */
   position: absolute;
@@ -288,7 +318,7 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 10vw;
+  top: 5vw;
   z-index: 34;
 }
  
@@ -323,8 +353,8 @@ body {
      50%{transform: rotate(0deg)}
      75%{transform: rotate(20deg)}
      100%{transform: rotate(0deg)}
-     30%{top: 50vw}
-     70%{top: 50vw}
+     30%{top: 54vw}
+     70%{top: 54vw}
      100%{top: 68vw}
  }  
  
@@ -334,14 +364,14 @@ body {
      100%{top: 68.5vw}
  }
  
-  
+
 
  
  .par {
      position: relative;
      overflow: hidden;
      height: 75vw;
-     margin-top: 25vw;
+     margin-top: 20vw;
      border: solid;
      border-width: 0.4vw;
      border-color: gray;
