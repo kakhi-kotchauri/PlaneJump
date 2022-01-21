@@ -10,13 +10,17 @@ const record = document.querySelector('#record')
 const reset = document.querySelector('#reset')
 const restartpar = document.querySelector('#restartpar')
 const par = document.querySelector('#par')
+const newobj = document.querySelector('#newobj')
 const test = document.querySelector('#test')
 const portwidth = document.querySelector('#width')
+const plane2 = document.querySelector('#plane2')
+
+
 
 
 let storer = 0
 let maxscore = storer
-let speed = 2000
+let speed = 2700
 let gamestat = true
 let intersectstatus = false
 let movmentcounter = 0
@@ -29,19 +33,28 @@ let delay = 1000
 let mobile = true
 let changeisland = false
 let randomnum = null
-let width = portwidth.offsetWidth
+let width = null
+
 
 
 setInterval(() => {
+
+width = portwidth.offsetWidth
+
+
   if (mobile) {
    mobile = window.getComputedStyle(test, null).display 
    if(mobile === 'none') {
-    speed = 1500
+    speed = 2000
+    multiply = 0.02
     mobile = false
    }
   }
 
-}, 150);
+  newobj.style.left = `${width * 80 / 100}px`
+
+
+}, 10);
 
 
 setInterval(() => {
@@ -63,6 +76,7 @@ setInterval(() => {
 
 let blockleftp = window.getComputedStyle(block).getPropertyValue('left')
 
+
   if (movmentcounter % 10 === 0 && stopstop) {
      lvl = lvl + 1
     console.log('ss')
@@ -70,17 +84,20 @@ let blockleftp = window.getComputedStyle(block).getPropertyValue('left')
      stopstop = false
   }
 
+  
   if (movmentcounter % 10 !== 0) {
     stopstop = true
  }
 
- if (parseInt(blockleftp) < -width * 20 / 100 && randomnum === 2) {
+
+ if (parseInt(blockleftp) < -width * 40 / 100 && randomnum === 2) {
   changeisland = true
 }
 
-if (parseInt(blockleftp) < -width * 20 / 100 && randomnum !== 2 ) {
+if (parseInt(blockleftp) < -width * 40 / 100 && randomnum !== 2 ) {
   changeisland = false
 }
+
 
 if(gamestat === false) {
   block.style.animation = `block 0ms infinite linear`
@@ -91,7 +108,7 @@ if (intersectstatus === false) {
   
   if (changeisland && stopstop2) {
     blockimg.src = 'island2.png'
-    console.log('newis')
+    // console.log('newis')
     stopstop2 = false
   }
   
@@ -101,6 +118,7 @@ if (intersectstatus === false) {
         blockimg.src = 'cliff.png'
         stopstop2 = true
       }
+
     }, 100);
   }
 }
@@ -108,6 +126,7 @@ if (intersectstatus === false) {
 
 if (movmentcounter >= 0) {
   speed = speed - multiply
+  // delay = delay + multiply
 
   if(gamestat === true){
   exp()
@@ -116,7 +135,11 @@ if (movmentcounter >= 0) {
 }
 
 
+
+
+
 }, 10);
+
 
 
 setInterval(() => {
@@ -221,6 +244,11 @@ setInterval(function(){
   let div2Right = div2.right
   let div2Bottom = div2.bottom
   
+  let div3 = newobj.getBoundingClientRect();
+  let div3Top = div3.top;
+  let div3Left = div3.left;
+  let div3Right = div3.right
+  let div3Bottom = div3.bottom
 
 
   if (div1Top > div2Top) {
@@ -237,6 +265,17 @@ setInterval(function(){
 
   // 
 
+  if (div1Top < div3Top) {
+    verticalMatch2 = true
+ } else{
+    verticalMatch2 = false
+ }
+ 
+ if ((div3Right > div1Left && div3Right < div1Right)||(div3Left < div1Right && div3Left > div1Left)) {
+   horizontalMatch2 = true
+ } else {
+   horizontalMatch2 = false
+ }
   
   if (horizontalMatch && verticalMatch || horizontalMatch2 && verticalMatch2){
     intersect = true
@@ -256,8 +295,13 @@ setInterval(function(){
 
   
   let charactertopp = parseInt(window.getComputedStyle(character).getPropertyValue('top'))
+  let newobjleftp = window.getComputedStyle(newobj).getPropertyValue('left')
   let blockleftp = window.getComputedStyle(block).getPropertyValue('left')
 
+
+
+  // console.log(blockleftp)
+  // console.log(par.offsetWidth)
 
        if (parseInt(blockleftp) < 0 && stoper) {
          movmentcounter = movmentcounter + 1
@@ -270,6 +314,7 @@ setInterval(function(){
         }
 
 
+  
 function getRotationAngle(target) 
 {
   const obj = window.getComputedStyle(target, null);
@@ -293,6 +338,7 @@ function getRotationAngle(target)
 }
 
 
+
   if(intersect && intersectstatus === false) {
     intersectstatus = true
     restartpar.style.display = 'flex'
@@ -311,8 +357,14 @@ function getRotationAngle(target)
     character.classList.remove('animate1')
     character.classList.add('smt')
     block.style.left = blockleftp
+    newobj.style.left = newobjleftp
     if (changeisland) {
     blockimg.src = 'island2dest.png'
+    }
+    if (verticalMatch2) {
+      character.style.top = `${charactertopp - charactertopp * 2 / 100}px`
+      character.style.transform = `rotate(${getRotationAngle(character) + getRotationAngle(character) * 3 / 100}deg)`
+      plane2.src = 'plane2dest.png'
     }
   }
 
@@ -320,32 +372,45 @@ function getRotationAngle(target)
 
 
 function restart() {
+  plane2.src = 'plane2.png'
   restartpar.style.display = 'none'
   block.style.display = 'none'
   block.classList.remove('blockpar')
+  newobj.style.display = 'none'
+  newobj.classList.remove('newobj')
   storer = 0
   character.src = 'plane.png'  
   blockimg.src = 'cliff.png'
   character.style.top = 'unset'
   character.style.transform = `rotate(0deg)`
   block.style.left = 'unset'
+  // newobj.style.left = 'unset'
   intersectstatus = false
   gamestat = true
   setTimeout(() => {
     block.style.display = 'inline-block'
     block.classList.add('blockpar')
+    newobj.style.display = 'inline-block'
+    newobj.classList.add('newobj')
   }, 40);
-  speed = 2000
+  speed = 2700
   score1.style.display = 'none'
   record.style.display = 'none'
   character.classList.remove('smt')
   character.classList.add('animate1')
   movmentcounter = 0
-  multiply = 0.1
+  multiply = 0.05
+  if (mobile) {
+    multiply = 0.02
+  }
   lvl = 0
   stopstop = true
   delay = 2500
   mobile = true
   changeisland = false
 }
+
+
+
+
 

@@ -11,11 +11,28 @@ body {
     padding-left: 12.5%;
 }
 
+.newobj {
+  width: 110%;
+  height: 2vw;
+  /* background-color: blue; */
+  position: absolute;
+  bottom: 10vw;
+  margin-left: -20vw;
 
-@keyframes slideobj {
+}
+
+
+.plane2 {
+  width: 100%;
+  height: 3vw;
+  position: absolute;
+  top: 0;
+}
+
+/* @keyframes slideobj {
   0%{left: 120%}
   100%{left: -40%}
-} 
+}  */
 
 
 
@@ -56,6 +73,7 @@ body {
   top: 21.2vw;
   left: 78.5%;
 }
+
 .scorepar {
   width: 100%;
   height: 4vw;
@@ -102,6 +120,7 @@ body {
 }
 
 .collider {
+  /* display: none; */
   height: 8.5vw;
   width: 70%;
   /* background-color: red;  */
@@ -132,7 +151,7 @@ body {
 
  @keyframes block {
     0%{left: 120%}
-    100%{left: -40%}
+    100%{left: -100%}
 } 
 
 
@@ -189,8 +208,6 @@ body {
 }
 
 
-
-
 .restartpar {
   position: absolute;
   top: 0;
@@ -209,27 +226,27 @@ body {
 #width {
   width: 100%;
   color: transparent;
-  /* background-color: red; */
+  /* background-color: blue; */
   position: absolute;
   top: 0;
 }
 
 .test1 {
   color: transparent;
-  position: absolute;
-  top: 0;
 }
 
 
-
-/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 
 
 @media only screen and (max-width: 600px) {
  
 .test1 {
-  color: red;
+  color: transparent;
+  /* background-color: blue; */
+  position: absolute;
+  top: 0;
   display: none;
 }
 
@@ -251,7 +268,7 @@ body {
      height: 5vw;
      width: 17%;
      position: absolute;
-     top: 60vw;
+     top: 68vw;
      z-index: 4;
      /* background-color: blue; */
        transform: rotate(0deg);
@@ -274,6 +291,25 @@ body {
      left: 70%;
      animation: block 1.7s infinite linear;
  }
+
+
+ .newobj {
+  width: 100%;
+  height: 3vw;
+  /* background-color: blue; */
+  position: absolute;
+  bottom: 16vw;
+  margin-left: 20vw;
+}
+
+
+.plane2 {
+  width: 100%;
+  height: 4vw;
+  position: absolute;
+  top: 0;
+}
+
 
  
 .colpar {
@@ -310,7 +346,7 @@ body {
 }
 
 .scorepar0 {
-  padding-top: 3vw;
+  padding-top: 1vw;
   width: 100%;
   height: 4vw;
   display: flex;
@@ -343,7 +379,7 @@ body {
 
    @keyframes block {
      0%{left: 120%}
-     100%{left: -70%}
+     100%{left: -140%}
  } 
  
  @keyframes character {
@@ -359,19 +395,19 @@ body {
  }  
  
  @keyframes updown {
-     0%{top: 68.5vw}
-     50%{top: 68.5.2vw}
-     100%{top: 68.5vw}
+     0%{top: 68.4vw}
+     50%{top: 68.5vw}
+     100%{top: 68.4vw}
  }
  
-
+  
 
  
  .par {
      position: relative;
      overflow: hidden;
      height: 75vw;
-     margin-top: 20vw;
+     margin-top: 15vw;
      border: solid;
      border-width: 0.4vw;
      border-color: gray;
@@ -385,7 +421,7 @@ body {
   width: 100%;
   height: 6.5vw;
   z-index: 1;
-  background-color: blue;
+  background-color: aqua;
 }
 
 .seapic {
