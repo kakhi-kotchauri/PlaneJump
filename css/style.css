@@ -40,6 +40,11 @@ body {
 
 }
 
+@keyframes newobj {
+  0%{bottom: 10vw}
+  50%{bottom: 10.1vw}
+  100%{bottom: 10vw}
+}
 
 .plane2 {
   width: 100%;
@@ -331,7 +336,7 @@ body {
   /* background-color: blue; */
   position: absolute;
   bottom: 16vw;
-  margin-left: 20vw;
+  margin-left: 10vw;
 }
 
 

@@ -29,11 +29,15 @@ let lvl = 0
 let maxlvl = lvl
 let stopstop = true
 let stopstop2 = true
+let stopstop3 = true
 let delay = 1000
 let mobile = true
 let changeisland = false
+let changeplane = false
 let randomnum = null
 let width = null
+let runstatus = true
+
 
 
 
@@ -79,7 +83,7 @@ let blockleftp = window.getComputedStyle(block).getPropertyValue('left')
 
   if (movmentcounter % 10 === 0 && stopstop) {
      lvl = lvl + 1
-    console.log('ss')
+    // console.log('ss')
     multiply = multiply + 0.01
      stopstop = false
   }
@@ -96,6 +100,26 @@ let blockleftp = window.getComputedStyle(block).getPropertyValue('left')
 
 if (parseInt(blockleftp) < -width * 40 / 100 && randomnum !== 2 ) {
   changeisland = false
+}
+
+let mobiledisp = window.getComputedStyle(test, null).display 
+  
+
+if ( mobiledisp !== 'none' && parseInt(blockleftp) < -width * 80 / 100 && randomnum === 2) {
+  changeplane = true
+}
+
+if ( mobiledisp !== 'none' && parseInt(blockleftp) < -width * 80 / 100 && randomnum !== 2 ) {
+  changeplane = false
+}
+
+
+if ( mobiledisp === 'none' && parseInt(blockleftp) < -width * 120 / 100 && randomnum === 2) {
+  changeplane = true
+}
+
+if ( mobiledisp === 'none' && parseInt(blockleftp) < -width * 120 / 100 && randomnum !== 2 ) {
+  changeplane = false
 }
 
 
@@ -121,6 +145,27 @@ if (intersectstatus === false) {
 
     }, 100);
   }
+
+
+
+  if (changeplane && stopstop3) {
+    plane2.src = 'pictures/plane2green.png'
+    // console.log('newis')
+    stopstop3 = false
+  }
+  
+  if (changeplane === false) {
+    setTimeout(() => {
+      if(intersectstatus === false) {
+        plane2.src = 'pictures/plane2.png'
+        stopstop3 = true
+      }
+
+    }, 100);
+  }
+   
+
+
 }
 
 
@@ -163,7 +208,7 @@ setInterval(() => {
       }
     }
 
-    if(intersectstatus === false) {
+    if(intersectstatus === false && runstatus) {
 
       if(event.code === 'ArrowUp' || event.code === 'Space') {
   
@@ -194,9 +239,6 @@ setInterval(() => {
 
 
 setInterval(() => {
-  html.addEventListener('click', function() {
-    c()
-  })
 
   body.addEventListener('touchstart', function() {
     c()
@@ -306,7 +348,7 @@ setInterval(function(){
        if (parseInt(blockleftp) < 0 && stoper) {
          movmentcounter = movmentcounter + 1
          stoper = false
-         console.log(movmentcounter)
+        //  console.log(movmentcounter)
         }
 
         if(parseInt(blockleftp) > 0) {
@@ -341,12 +383,13 @@ function getRotationAngle(target)
 
   if(intersect && intersectstatus === false) {
     intersectstatus = true
+    runstatus = false
     restartpar.style.display = 'flex'
     score1.textContent = ` Current Level: ${lvl}, score: ${storer},`
     score1.style.display = 'block'
     record.style.display = 'block'
     character.src = 'pictures/dest.png'
-    console.log('dest')
+    // console.log('dest')
     blockimg.src = 'pictures/destcliff.png'
     score.textContent = `Plane destroyed`
     record.textContent = ` Record Level: ${maxlvl}, score: ${maxscore},`
@@ -365,6 +408,9 @@ function getRotationAngle(target)
       character.style.top = `${charactertopp - charactertopp * 2 / 100}px`
       character.style.transform = `rotate(${getRotationAngle(character) + getRotationAngle(character) * 3 / 100}deg)`
       plane2.src = 'pictures/plane2dest.png'
+       if (changeplane) {
+         plane2.src = 'pictures/plane2greendest.png'
+       }
     }
   }
 
@@ -408,8 +454,8 @@ function restart() {
   delay = 2500
   mobile = true
   changeisland = false
+  changeplane = false
+  setTimeout(() => {
+    runstatus = true
+  }, 20);
 }
-
-
-
-
