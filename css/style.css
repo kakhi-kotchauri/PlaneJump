@@ -36,7 +36,7 @@ body {
   /* background-color: blue; */
   position: absolute;
   bottom: 10vw;
-  margin-left: -20vw;
+  margin-left: -10vw;
 
 }
 
@@ -175,7 +175,7 @@ body {
 
  @keyframes block {
     0%{left: 120%}
-    100%{left: -100%}
+    100%{left: -90%}
 } 
 
 

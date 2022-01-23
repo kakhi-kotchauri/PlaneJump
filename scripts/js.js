@@ -20,7 +20,7 @@ const plane2 = document.querySelector('#plane2')
 
 let storer = 0
 let maxscore = storer
-let speed = 2700
+let speed = 2600
 let gamestat = true
 let intersectstatus = false
 let movmentcounter = 0
@@ -439,7 +439,7 @@ function restart() {
     newobj.style.display = 'inline-block'
     newobj.classList.add('newobj')
   }, 40);
-  speed = 2700
+  speed = 2600
   score1.style.display = 'none'
   record.style.display = 'none'
   character.classList.remove('smt')
